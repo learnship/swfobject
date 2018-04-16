@@ -1,5 +1,6 @@
 /*!    SWFObject v2.3.20130521 <http://github.com/swfobject/swfobject>
-    is released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
+    is released under the MIT License <http://www.opensource.org/licenses/mit-license.php>    
+    This version contains a patch added by Learnship Networks GmbH to fix Chrome 6.65.x issue with an emtpy flash object tag.
 */
 
 /* global ActiveXObject: false */
@@ -13,6 +14,7 @@ var swfobject = function () {
         FLASH_MIME_TYPE = "application/x-shockwave-flash",
         EXPRESS_INSTALL_ID = "SWFObjectExprInst",
         ON_READY_STATE_CHANGE = "onreadystatechange",
+        TEST_SWF_FILE = "dist/plugins/jscam_canvas_only.swf",
 
         win = window,
         doc = document,
@@ -188,8 +190,23 @@ var swfobject = function () {
     function testPlayerVersion() {
         var b = doc.getElementsByTagName("body")[0];
         var o = createElement(OBJECT);
-        o.setAttribute("style", "visibility: hidden;");
+        
         o.setAttribute("type", FLASH_MIME_TYPE);
+    /* 
+        Learnship's workaround for Chrome 6.65.x issue that blocks flash objects 
+        with empty data attribute. The object should be visible too in order to avoid
+        being blocked by the browser. Therefore, some custom styling are added to make
+        the browser consider it as visible, while it would be invisible for the users
+        due to 0 opacity.
+    */
+        o.setAttribute("style", "opacity:0; position:absolute; left:0; bottom:0; z-index:13");
+    /*
+        The flash content of the same origin should be of size at least 6x6 pixels;
+        Chrome 6.65.x restirction.
+    */
+        o.setAttribute("height", "7");
+        o.setAttribute("width", "7");
+        o.setAttribute("data", TEST_SWF_FILE);
         var t = b.appendChild(o);
         if (t) {
             var counter = 0;
