@@ -2,6 +2,11 @@
 
 SWFObject is no longer in active development. Flash Player is on the decline, and the authors of SWFObject have moved on to other projects. This project is being left on GitHub for historical purposes.
 
+= --- ANOTHER IMPORTANT UPDATE ---
+
+The current version contains a patch, which solves the issue with Chrome browsers blocking empty flash objects.
+SWFObject temporaty appends such an object to the body of the page in order to gather information about the installed flash version. 
+
 = SWFObject
 
 SWFObject is a free, open-source tool for embedding swf content in websites.
