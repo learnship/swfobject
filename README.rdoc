@@ -5,7 +5,7 @@ SWFObject is no longer in active development. Flash Player is on the decline, an
 = --- ANOTHER IMPORTANT UPDATE ---
 
 The current version contains a patch, which solves the issue with Chrome browsers blocking empty flash objects.
-SWFObject temporaty appends such an object to the body of the page in order to gather information about the installed flash version. 
+SWFObject temporarily appends such an object to the body of the page in order to gather information about the installed flash version. 
 
 = SWFObject
 
