@@ -1,6 +1,6 @@
 /*!    SWFObject v2.3.20130521 <http://github.com/swfobject/swfobject>
     is released under the MIT License <http://www.opensource.org/licenses/mit-license.php>    
-    This version contains a patch added by Learnship Networks GmbH to fix Chrome 6.65.x issue with an emtpy flash object tag.
+    This version contains a patch added by Learnship Networks GmbH to fix Chrome 6.65.x issue with an emtpy flash object tag <https://github.com/learnship/swfobject>
 */
 
 /* global ActiveXObject: false */
